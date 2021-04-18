@@ -1,7 +1,12 @@
-const fs = require('fs')
-const path = require('path')
-const inquirer = require('inquirer')
-const figlet = require('figlet')
+import fs from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url'
+import inquirer from 'inquirer'
+import figlet from 'figlet'
+import updateAppJson from '../core/updateAppJson.js'
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // 酷炫文字
 const successText = () => {
@@ -72,6 +77,14 @@ const writeFile = async (templateType, templateName) => {
       )
 
     })
+
+    // 更新 app.json
+    if (templateType === 'pages') {
+      const pageName = `"${templateType}/${templateName}/${templateName}"`
+      updateAppJson(pageName)
+    }
+
+
     console.log(`\n🎉🎉🎉\n模板创建成功，位于：${templateType}/${templateName}/${templateName}`)
   } catch (e) {
     console.warn('模板创建失败：', e)

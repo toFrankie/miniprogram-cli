@@ -1,7 +1,6 @@
 {
   "name": "miniprogram-cli",
   "version": "1.0.0",
-  "main": "app.js",
   "author": "Frankie <1426203851@qq.com>",
   "license": "MIT",
   "private": false,
@@ -9,12 +8,14 @@
     "type": "git",
     "url": "https://github.com/toFrankie/miniprogram-cli.git"
   },
+  "type": "module",
   "scripts": {
     "create": "node cli"
   },
   "devDependencies": {
     "chalk": "^4.1.0",
     "figlet": "^1.5.0",
-    "inquirer": "^8.0.0"
+    "inquirer": "^8.0.0",
+    "prettier": "^2.2.1"
   }
 }
